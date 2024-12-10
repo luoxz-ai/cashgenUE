@@ -1,7 +1,7 @@
 #include "CashGen/Public/CGTerrainGeneratorWorker.h"
 #include "CashGen/Public/CGTile.h"
 
-#include <ProceduralMeshComponent/Public/ProceduralMeshComponent.h>
+#include "ProceduralMeshComponent.h"
 
 #include <UnrealFastNoisePlugin/Public/UFNNoiseGenerator.h>
 
@@ -487,8 +487,6 @@ void FCGTerrainGeneratorWorker::ProcessSkirtGeometry()
 void FCGTerrainGeneratorWorker::GetNormalFromHeightMapForVertex(const int32& vertexX, const int32& vertexY, FVector& aOutNormal) //, FVector& aOutTangent)
 {
 	FVector result;
-
-	FVector tangentVec, bitangentVec;
 
 	const int32 rowLength = workLOD == 0 ? pTerrainConfig.TileXUnits + 1 : (pTerrainConfig.TileXUnits / (pTerrainConfig.LODs[workLOD].ResolutionDivisor) + 1);
 	const int32 heightMapRowLength = rowLength + 2;

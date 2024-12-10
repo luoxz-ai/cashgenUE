@@ -16,12 +16,12 @@ struct FCGTileHandle
 {
 	GENERATED_USTRUCT_BODY()
 	// Current rendering status of the sector
-	ETileStatus myStatus;
-	uint8 myLOD;
-	int32 myWaterISMIndex;
+	ETileStatus myStatus{ETileStatus::NOT_SPAWNED};
+	uint8 myLOD{0};
+	int32 myWaterISMIndex{-1};
 	// Handle to the tile actor
 	UPROPERTY()
-	ACGTile* myHandle;
+	ACGTile* myHandle{nullptr};
 	// Bitmask to indicate which players require this sector
-	FDateTime myLastRequiredTimestamp;
+	FDateTime myLastRequiredTimestamp{};
 };
